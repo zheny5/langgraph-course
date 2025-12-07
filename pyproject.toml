@@ -1,21 +1,37 @@
-[tool.poetry]
-name = "reflection-agent"
+[project]
+name = "langgraph-course"
 version = "0.1.0"
-description = ""
-authors = ["Eden Marco <emarco177@gmail.com>"]
+description = "Agentic RAG exercises built with LangGraph."
+authors = [{ name = "Eden Marco", email = "emarco177@gmail.com" }]
 readme = "README.md"
+requires-python = ">=3.11,<3.12"
 
-[tool.poetry.dependencies]
-python = "^3.10"
-python-dotenv = "*"
-black = "*"
-isort = "*"
-langchain = "*"
-langchain-openai = "*"
-langgraph = "*"
-grandalf = "*"
+dependencies = [
+  "beautifulsoup4",
+  "chromadb",
+  "grandalf>=0.8",
+  "langchain",
+  "langchain-chroma",
+  "langchain-community",
+  "langchain-deepseek>=1.0.1",
+  "langchain-huggingface>=1.1.0",
+  "langchain-openai",
+  "langchain-tavily",
+  "langchainhub",
+  "langgraph",
+  "pydantic>=2.7",
+  "python-dotenv",
+  "sentence-transformers>=5.1.2",
+  "tavily-python",
+  "tiktoken",
+]
 
+[project.optional-dependencies]
+dev = ["black", "isort", "pytest"]
+
+[tool.uv]
+package = false
 
 [build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+requires = []
+build-backend = "hatchling.build"
