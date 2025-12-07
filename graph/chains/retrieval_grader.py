@@ -1,8 +1,10 @@
 from langchain_core.prompts import ChatPromptTemplate
-from langchain_openai import ChatOpenAI
+# from langchain_openai import ChatOpenAI
+from langchain_deepseek import ChatDeepSeek
 from pydantic import BaseModel, Field
 
-llm = ChatOpenAI(temperature=0)
+# llm = ChatOpenAI(temperature=0)
+llm = ChatDeepSeek(model="deepseek-chat")
 
 
 class GradeDocuments(BaseModel):

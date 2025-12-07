@@ -1,7 +1,8 @@
 from typing import Literal
 
 from langchain_core.prompts import ChatPromptTemplate
-from langchain_openai import ChatOpenAI
+# from langchain_openai import ChatOpenAI
+from langchain_deepseek import ChatDeepSeek
 from pydantic import BaseModel, Field
 
 
@@ -14,7 +15,8 @@ class RouteQuery(BaseModel):
     )
 
 
-llm = ChatOpenAI(temperature=0)
+# llm = ChatOpenAI(temperature=0)
+llm = ChatDeepSeek(model="deepseek-chat")
 structured_llm_router = llm.with_structured_output(RouteQuery)
 
 system = """You are an expert at routing a user question to a vectorstore or web search.

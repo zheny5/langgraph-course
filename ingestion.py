@@ -1,8 +1,9 @@
 from dotenv import load_dotenv
-from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain_classic.text_splitter import RecursiveCharacterTextSplitter
 from langchain_chroma import Chroma
 from langchain_community.document_loaders import WebBaseLoader
-from langchain_openai import OpenAIEmbeddings
+# from langchain_openai import OpenAIEmbeddings
+from langchain_huggingface import HuggingFaceEmbeddings
 
 load_dotenv()
 
@@ -30,5 +31,6 @@ doc_splits = text_splitter.split_documents(docs_list)
 retriever = Chroma(
     collection_name="rag-chroma",
     persist_directory="./.chroma",
-    embedding_function=OpenAIEmbeddings(),
+    # embedding_function=OpenAIEmbeddings(),
+    embedding_function=HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2"),
 ).as_retriever()

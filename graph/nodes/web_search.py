@@ -1,7 +1,7 @@
 from typing import Any, Dict
 
 from dotenv import load_dotenv
-from langchain.schema import Document
+from langchain_classic.schema import Document
 from langchain_tavily import TavilySearch
 
 from graph.state import GraphState
