@@ -1,27 +1,36 @@
-[tool.poetry]
-name = "langgaph-course"
+[project]
+name = "langgraph-course"
 version = "0.1.0"
-description = ""
-authors = ["Eden Marco <emarco177@gmail.com>"]
+description = "Agentic RAG exercises built with LangGraph."
+authors = [{ name = "Eden Marco", email = "emarco177@gmail.com" }]
 readme = "README.md"
+requires-python = ">=3.11,<3.12"
 
-[tool.poetry.dependencies]
-python = ">=3.10,<3.13"
-beautifulsoup4 = "*"
-langchain-community = "*"
-tiktoken = "*"
-langchainhub = "*"
-langchain = "*"
-langgraph = "*"
-tavily-python = "*"
-langchain-openai = "*"
-python-dotenv = "*"
-black = "*"
-isort = "*"
-pytest = "*"
-langchain-chroma = "*"
-langchain-tavily = "^0.1.5"
+dependencies = [
+  "beautifulsoup4",
+  "chromadb",
+  "langchain",
+  "langchain-chroma",
+  "langchain-community",
+  "langchain-deepseek>=1.0.1",
+  "langchain-huggingface>=1.1.0",
+  "langchain-openai",
+  "langchain-tavily",
+  "langchainhub",
+  "langgraph",
+  "pydantic>=2.7",
+  "python-dotenv",
+  "sentence-transformers>=5.1.2",
+  "tavily-python",
+  "tiktoken",
+]
+
+[project.optional-dependencies]
+dev = ["black", "isort", "pytest"]
+
+[tool.uv]
+package = false
 
 [build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+requires = []
+build-backend = "hatchling.build"
