@@ -1,5 +1,6 @@
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
-from langchain_openai import ChatOpenAI
+# from langchain_openai import ChatOpenAI
+from langchain_deepseek import ChatDeepSeek
 
 reflection_prompt = ChatPromptTemplate.from_messages(
     [
@@ -25,6 +26,7 @@ generation_prompt = ChatPromptTemplate.from_messages(
 )
 
 
-llm = ChatOpenAI()
+# llm = ChatOpenAI()
+llm = ChatDeepSeek(model="deepseek-chat")
 generate_chain = generation_prompt | llm
 reflect_chain = reflection_prompt | llm
