@@ -11,10 +11,12 @@ from langchain_core.output_parsers.openai_tools import (
 )
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_openai import ChatOpenAI
+from langchain_deepseek import ChatDeepSeek
 
 from schemas import AnswerQuestion, ReviseAnswer
 
-llm = ChatOpenAI(model="o4-mini")
+# llm = ChatOpenAI(model="o4-mini")
+llm = ChatDeepSeek(model="deepseek-chat")
 parser = JsonOutputToolsParser(return_id=True)
 parser_pydantic = PydanticToolsParser(tools=[AnswerQuestion])
 
